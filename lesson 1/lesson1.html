@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="box">Click me</div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<script>
+    // 'use strict';
+    // let const
+
+    // ES5
+
+    // var name = 'John';
+    // var age = 25;
+    // name = 'Sam';
+    // console.log(name);
+
+    //ES6
+
+    // let age = 25;
+    // const name = 'John';
+    // age = 26;
+    // console.log(age);
+
+
+    // function passTest5(result){
+    //     if(result){
+    //         var firstName = 'John';
+    //         var yearOfBirth = 1990
+    //     }
+    //     console.log(firstName + ' рожденный в ' + yearOfBirth + ' сдал тест');
+    // }
+    //
+    // passTest5(true);
+
+
+    // function passTest6(result){
+    //     let firstName;
+    //     const yearOfBirth = 1990;
+    //     if(result){
+    //         firstName = 'John';
+    //     }
+    //     console.log(firstName + ' рожденный в ' + yearOfBirth + ' сдал тест');
+    // }
+    //
+    // passTest6(true);
+
+    // {
+    //     let a = 20
+    // }
+    // console.log(a);
+
+    // const arr = [1,2,3,4];
+    //
+    // arr.push(6);
+    // console.log(arr);
+
+    //ES5
+
+    // let i = 23;
+    //
+    // for(let i = 0; i < 5; i++){
+    //     console.log(i);
+    // }
+    // console.log(i);
+
+
+    // Template literals
+
+    // let firstName = 'John';
+    // const yearOfBirth = 1990;
+
+    // let str = `${firstName} рожденный в ${yearOfBirth} сдал тест`;
+    // let str = `${firstName.toUpperCase()} рожденный в ${yearOfBirth + 10} сдал тест`;
+    // let firstName = 'John';
+    // let lastName = 'Smith';
+    // let str = `${firstName} ${lastName}`;
+    // console.log(str);
+    // console.log(str.startsWith('Jon'));
+    // console.log(str.endsWith('t'));
+    // console.log(str.includes('n S'));
+    // console.log(`${str} `.repeat(5));
+
+
+    // Arrow functions
+
+    // const calcAge = () => {
+    //     return 6
+    // }
+    // const calcAge = x => 6 + x;
+    // const calcAge = (x, y = 4) => {
+    //     return 6 + x - y
+    // };
+    // console.log(calcAge(5, 2))
+
+    // es5
+
+    // let box = {
+    //     color: 'green',
+    //     position: 1,
+    //     clickMe(){
+    //         document.querySelector('.box').addEventListener('click', () => {
+    //             console.log(this);
+    //             let str = `This is box number ${this.position} and it's ${this.color}`;
+    //             console.log(str);
+    //         })
+    //     }
+    // };
+    // box.clickMe();
+
+    // Деструктуризация
+
+    // ES5
+
+    // var arr = ['John', 26];
+    // var name = arr[0];
+    // var age = arr[1];
+    // console.log(name);
+    // console.log(age);
+
+    // ES6
+
+    // let arr = ['John', 26, 23];
+    // let [name, age] = arr;
+    //
+    // console.log(name);
+    // console.log(age);
+    // console.log(some);
+
+    // let obj = {
+    //     firstName: 'John',
+    //     lastName: 'Smith',
+    //     colors: ['white', 'black']
+    // };
+
+    // let {firstName:a, lastName:b, colors: [c, d]} = obj;
+    //
+    // console.log(a);
+    // console.log(b)
+    // console.log(c)
+    // console.log(d)
+
+    // let ret = year => {
+    //     const age = 2019 - year;
+    //     return [age, 65 - age];
+    // };
+    //
+    // console.log(ret(1990));
+    // let [curAge, retirement] = ret(1990);
+    // console.log(curAge)
+    // console.log(retirement)
+
+    // spread operator
+
+    // let calcArgs = (a,b,c,d) => a+b+c+d;
+    // const arrNums = [2,5,8,12];
+
+    //ES5
+    // let sum = calcArgs.apply(null, arrNums);
+    //ES6
+    // let sum = calcArgs(...arrNums);
+    // console.log(sum)
+
+    // let names1 = ['Tom', 'John', 'Ann'];
+    // let names2 = ['Mary', 'Bob', 'Mark'];
+
+    // let bigNames = [...names1, 'Lilly', ...names2];
+    // console.log(bigNames);
+    
+    // let boxes = document.querySelectorAll('.box');
+    // // let boxesArr = Array.from(boxes);
+    // let boxesArr = [...boxes];
+    // console.log(boxesArr);
+
+
+    // rest param
+
+    // ES5
+    // function isFullAge(limit){
+    //     console.log(arguments);
+    //     // const arrArgs = Array.prototype.slice.call(arguments, 1);
+    //     // console.log(arrArgs);
+    // }
+    // isFullAge(1923, 1926, 2001, 2004);
+
+
+    // let isFullAge = (limit, ...years) => {
+    //     console.log(years);
+    //     console.log(limit);
+    // };
+    // isFullAge(18, 1923, 1926, 2001, 2004);
+
+    // Maps
+
+    // let question = new Map();
+    // question.set('question', 'Какой стандарт JS сейчас используется?')
+    //         .set(1, 'ES5')
+    //         .set(2, 'ES3')
+    //         .set(3, 'ES1')
+    //         .set(4, 'ES6')
+    //         .set('correct', 4)
+    //         .set(true, 'Совершенно верно!')
+    //         .set(false, 'Ошибка');
+    //
+    // console.log(question.get('question'));
+    // // console.log(question.get(true));
+    // // if(question.has(4)){
+    // //     question.delete(4);
+    // // }
+    // // question.clear();
+    //
+    // // for...in
+    // // question.keys() - все ключи
+    // // question.values() - все значения
+    // //
+    // for(let [key, value] of question.entries()){
+    //     if(typeof key === 'number'){
+    //         console.log(`Ответ ${key}: ${value}`);
+    //     }
+    // }
+    //
+    // let userAnswer = +prompt('Введите ответ');
+    // console.log(question.get(userAnswer === question.get('correct')));
+    //
+    // console.log(question);
+
+
+    // Sets
+
+    // let set = new Set();
+    // // console.log(set);
+    // let user1 = {name: 'John', age: 20};
+    // let user2 = {name: 'Ann', age: 20};
+    // let user3 = {name: 'Sam', age: 20};
+    //
+    // set.add(user1);
+    // set.add(user2);
+    // set.add(user3);
+    // set.add(user1);
+    // set.add(user2);
+    // set.add(user2);
+    // set.add(user3);
+    // set.add(1);
+    // set.add(2);
+    // set.add(2);
+    // set.add(1);
+    // // set.add({name: 'Sam', age: 20});
+    //
+    // set.delete(1);
+    // console.log(set.has(user1));
+    // set.clear()
+    // console.log(set);
+
+</script>
+</body>
+</html>

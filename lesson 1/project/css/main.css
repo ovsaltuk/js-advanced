@@ -1,0 +1,66 @@
+html,
+body{
+    margin: 0;
+    outline: none;
+    font-family: 'Roboto Slab', serif;
+}
+button{
+    outline: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.button{
+    border-radius: 8px;
+    background-color: #7f4782;
+    color: #ffffff;
+    border: 1px solid transparent;
+    transition: .3s;
+}
+.header {
+    background-color: #00334e;
+}
+.container_header{
+    min-height: 100px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+}
+.button_cart{
+    height: 30%;
+    padding: 5px 20px;
+    border-radius: 8px;
+    font-size: 25px;
+
+}
+
+.button:hover {
+    border-color: #7f4782;
+    background-color: #fff;
+    color: #7f4782;
+    transition: .3s;
+}
+.products{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: #5588a3;
+}
+.product-item{
+    padding: 15px 20px;
+    background-color: #e8e8e8;
+    margin: 25px;
+    border: 1px solid #ececec;
+    border-radius: 5px;
+}
+.product-item__title{
+    margin: 0;
+}
+
+.button_buy {
+    padding: 5px 15px;
+    font-size: 15px;
+}
