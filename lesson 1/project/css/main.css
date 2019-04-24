@@ -47,7 +47,6 @@ button{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    background-color: #5588a3;
 }
 .product-item{
     padding: 15px 20px;
