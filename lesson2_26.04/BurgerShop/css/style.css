@@ -1,0 +1,38 @@
+body {
+    background-image: url(https://imageog.flaticon.com/icons/png/512/198/198416.png?size=1200x630f&pad=10,10,10,10&ext=png&bg=FFFFFFFF);
+    background-size: 80px 70px;
+}
+
+.burger{
+    margin: 50px auto;
+    background-color: #F5F5F5;
+    width: 900px;
+    min-height: 500px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #E64A19;
+    box-shadow: 0 0 25px -1px rgba(255, 108, 23, 0.51);
+    border-radius: 8px;
+}
+.burger__title{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    color: #DD2C00;
+}
+.burger__submit{
+    background-color: #DD2C00;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin-top: 30px;
+    outline: none;
+    color: #F5F5F5;
+    text-transform: uppercase;
+}
+.burger__checkbox-label{
+    color: #263238;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}

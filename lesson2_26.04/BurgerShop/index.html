@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Burger Shop</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="burger">
+        <h3 class="burger__title">Create your burger</h3>
+        <form  class="burger__constructor">
+            <h2 class="burger__subtitle">Size</h2>
+            <input type="radio" name="size" value="small" id="burgerSizeSmall" checked>
+            <label for="burgerSizeSmall" class="burger__checkbox-label">Small</label>
+            <input type="radio" name="size" value="big" id="burgerSizeBig">
+            <label for="burgerSizeBig" class="burger__checkbox-label">Big</label>
+
+            <h2 class="burger__subtitle">Toppings</h2>
+            <input type="checkbox" name="topping" value="cheese" id="toppingCheese" checked>
+            <label for="toppingCheese" class="burger__checkbox-label">Cheese</label>
+            <input type="checkbox" name="topping" value="salad" id="toppingSalad">
+            <label for="toppingSalad" class="burger__checkbox-label">Salad</label>
+            <input type="checkbox" name="topping" value="potato" id="toppingPotato">
+            <label for="toppingPotato" class="burger__checkbox-label">Potato</label>
+
+            <h2 class="burger__subtitle">Extra</h2>
+            <input type="checkbox" name="extra" value="paprika" id="extraPaprika">
+            <label for="extraPaprika" class="burger__checkbox-label">Paprika</label>
+            <input type="checkbox" name="extra" value="mayo" id="extraMayo">
+            <label for="extraMayo" class="burger__checkbox-label">Mayo</label>
+            <br>
+            <button type="submit" class="burger__submit">
+            Create burger
+            </button>
+        </form>
+
+
+    </div>
+</body>
+<script src="js/main.js"></script>
+</html>
