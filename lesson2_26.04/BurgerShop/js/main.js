@@ -1,26 +1,29 @@
-class Humburger {
-    constructor(){
+class Hamburger {
+    constructor(button = '.burger__submit'){
     this.size = 'small';
-    this.toppings = [];
-    this.extra = [];
+    this.allToppings = [];
+    this.allExtra = [];
+    this.burgerToppings = [];
+    this.burgerExtra = [];
     }
     _createBurger(){
-        this._fetchToppings();
+        this._burgerClear();
+        this._fetchAllToppings();
         this._fetchExtra();
         this._setSize();
         this._setToppings();
         this._setExtra();
 
     }
-    _fetchToppings(){
-        this.toppings = [
+    _fetchAllToppings(){
+        this.allToppings = [
             {name: 'cheese', calories: 20, price: 10},
             {name: 'salad', calories: 5, price: 20},
             {name: 'potato', calories: 10, price: 15},
         ]
     }
     _fetchExtra(){
-        this.extra = [
+        this.allExtra = [
             {name: 'paprika', calories:0, price: 15},
             {name: 'mayo', calories: 5, price: 20}
         ]
@@ -46,7 +49,7 @@ class Humburger {
     _setToppings(toppingsArr = this._getToppings()){
         for (let el of toppingsArr){
             if (el.checked){
-                this.toppings.push(el.value);
+                this.burgerToppings.push(el.value);
             }
         }
     }
@@ -59,9 +62,20 @@ class Humburger {
     _setExtra(extraArr = this._getExtra()){
         for (let el of extraArr){
             if (el.checked){
-                this.extra.push(el.value)
+                this.burgerExtra.push(el.value)
             }
         }
     }
+    _burgerClear(){
+        this.burgerExtra.length = 0;
+        this.burgerToppings.length = 0;
+    }
 }
 
+let burger = new Hamburger();
+
+document.querySelector('.burger__submit').addEventListener('click', (e)=>{
+    e.preventDefault();
+    burger._createBurger();
+    console.log(burger);
+})
