@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .orange{
+            background-color: orange;
+            color: white
+        }
+    </style>
+</head>
+<body>
+<div class="ajax-block"></div>
+<button class="ajax-btn">Async get data</button>
+<div class="block">
+    <h2>Lorem ipsum dolor sit amet.</h2>
+    <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, amet fuga ipsum iste itaque laborum laudantium magnam maxime, minima mollitia nostrum odit perferendis possimus saepe suscipit tenetur vel veniam vitae.</span><span>Accusantium architecto asperiores, cupiditate dignissimos doloribus eaque eius enim eum ex excepturi fugit illum in labore libero minima modi molestias non nostrum pariatur provident quaerat tempora tempore vel voluptate voluptatem.</span>
+    </p>
+</div>
+<button class="btn1">Show</button>
+<button class="btn2">Hide</button>
+<button class="btn3">Toggle</button>
+<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam aspernatur at aut consectetur dolor dolorem error
+    illum, ipsum iusto magnam magni nesciunt perspiciatis praesentium quae quis reprehenderit tempore temporibus
+    vitae!</p>
+<p>Animi doloribus ducimus eius fuga ipsam laboriosam natus officiis omnis rerum vitae? Ab consequuntur, dolor dolore
+    ducimus est eveniet id iure laboriosam modi quae quod recusandae reprehenderit sequi tempore vel.</p>
+<p class="text">Ad alias animi asperiores autem debitis deserunt dolorem dolorum eaque illo in ipsa ipsum nostrum optio perspiciatis
+    quae quam quas quasi qui quis quos recusandae tenetur ullam velit, voluptatem voluptatum.</p>
+<p>Adipisci, assumenda autem cum dolores error eveniet excepturi id inventore ipsa ipsum molestiae molestias nisi nulla
+    officiis praesentium, ratione rerum, unde vero voluptas voluptate? Enim, praesentium, qui! Facere placeat,
+    soluta!</p>
+<p>Animi commodi dicta dolorum mollitia porro, quasi recusandae rerum. Ad aliquid aperiam architecto beatae commodi
+    culpa, error fugiat in iure nesciunt nisi numquam perspiciatis porro quae sed similique tenetur, velit.</p>
+<p class="text">Aperiam at commodi, corporis cumque dolor dolore harum labore laboriosam maiores non porro rem totam voluptatem.
+    Consectetur ex, facilis laudantium necessitatibus quaerat quam quasi quod saepe sint voluptatum. Similique,
+    voluptas.</p>
+<p>Doloremque fugiat, totam. A eligendi ipsam molestiae ratione sed. Ad culpa doloribus esse ipsam quae rem saepe?
+    Accusantium animi aspernatur culpa distinctio, doloribus eum ex laudantium quod, quos reiciendis rem.</p>
+<p class="text">A ad aliquid animi aspernatur beatae commodi, consequatur corporis dolorum eaque eius esse eum id ipsum magni nulla
+    optio pariatur praesentium quas quis ratione repudiandae saepe temporibus tenetur vero voluptates.</p>
+<p>At aut dolore dolorem facilis illo in incidunt ipsa iusto laboriosam magnam minus molestiae molestias nihil numquam
+    perspiciatis quam quasi quisquam quo quos reprehenderit, soluta tempora voluptatibus. Error, non vitae!</p>
+<p>Dolor dolores est excepturi, expedita harum molestias sed soluta voluptatum! Adipisci dolores ea fugit nesciunt
+    suscipit. Architecto eaque eveniet ex illum iste iure, labore laudantium minus officia, omnis recusandae sit?</p>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script>
+
+    //window.onload
+
+    $(document).ready(() => {
+        // console.log($('p'));
+        $('p').addClass('orange');
+        // $('#p1').css('color', 'red').css('font-size', '2em');
+        // $('#p1').css({
+        //     color: 'red',
+        //     fontSize: '2em'
+        // });
+
+        $('p:eq(4)').css('font-size', '2em');
+        // $('p:first').css('font-size', '2em');
+        // $('p:last').css('font-size', '2em');
+
+        $('.text').each((index, item) => {
+            console.log(index, item);
+            $(item).addClass('strong'); // jquery
+            // item.classList.add('strong'); // js
+        });
+
+
+        // работа с событиями
+
+        // let $block = $('.block');
+        // let $btn1 = $('.btn1');
+        // let $btn2 = $('.btn2');
+        // let $btn3 = $('.btn3');
+        //
+        // // $().click();
+        // // $().submit();
+        //
+        // // $('.products').on('click', '.buy-btn', () => {})
+        //
+        // $btn1.on('click', () => {
+        //     // $block.show();
+        //     // $block.fadeIn(3000);
+        //     $block.slideDown(3000);
+        // });
+        // $btn2.on('click', () => {
+        //     // $block.hide();
+        //     // $block.fadeOut(3000);
+        //     $block.slideUp(3000);
+        // })
+        // $btn3.on('click', () => {
+        //     // $block.toggle();
+        //     // $block.fadeToggle(3000);
+        //     $block.slideToggle(3000);
+        // })
+
+
+        //AJAX
+
+        let $ajaxBlock = $('.ajax-block');
+        let $ajaxBtn = $('.ajax-btn');
+
+        $ajaxBtn.on('click', () => {
+            $.ajax({
+                url: 'tel.json',
+                type: 'GET',
+                // async: false // синхронный запрос
+                dataType: 'json',
+                success: (data) => {
+                    let $user = $(`<p>${data.name} - <strong>${data.tel}</strong></p>`);
+                    $ajaxBlock.append($user);
+                },
+                error: error => console.log(error)
+            })
+        })
+    })
+
+</script>
+</body>
+</html>

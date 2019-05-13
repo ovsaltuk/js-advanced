@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // Последовательные запросы
+
+    let getData = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve([534, 236, 782]);
+        }, 1500)
+    });
+    let getJob = userID => {
+        return new Promise((resolve, reject) => {
+            setTimeout(ID => {
+                let userData = {
+                    name: 'John',
+                    job: 'Full-stack developer'
+                };
+                resolve(`User with ${ID} is ${userData.job}`);
+            }, 1500, userID)
+        })
+    };
+
+    // getData
+    //     .then(IDs => {
+    //         console.log(IDs);
+    //         return getJob(IDs[1])
+    //     })
+    //     .then(job => console.log(job));
+
+    // async/await
+
+    async function getJobAW(){
+        let IDs = await getData;
+        console.log(IDs);
+        let job = await getJob(IDs[2]);
+        console.log(job);
+        return job
+    }
+
+    // getJobAW()
+    //     .then(data => console.log(data))
+</script>
+</body>
+</html>
