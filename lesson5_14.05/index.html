@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .block{
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            background-color: #c0c0c0;
+        }
+        .red{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+
+    <div class="products">
+        <div class="product" v-for="product of products">
+            <img :src="product.img">
+            <div class="desc">
+                <p>{{product.title}}</p>
+                <p>{{product.price}}</p>
+                <p>{{product.quantity}}</p>
+            </div>
+            <button @click="product.quantity++">Increase qty</button>
+        </div>
+    </div>
+    <button @click="addProduct">Add product</button>
+
+    <p v-if="show">I'm visible</p>
+    <p>Static</p>
+    <p v-show="show">Styled</p>
+    <button @click="show = !show">Show</button>
+
+    <div class="block" :style="myStyle"></div>
+    <input type="text" v-model="color">
+    <input type="text" v-model="width">
+    
+    <div class="block" @click="isRed = !isRed" :class="{red: isRed, blue: !isRed}"></div>
+    <div class="block" @click="isRed = !isRed" :class="divClasses"></div>
+    <div class="block" :style="{'backgroundColor': color}"></div>
+
+
+    <h2 v-once>{{ title }}</h2>
+    <p>{{ sayHello() }}</p>
+    <!--<a v-bind:href="link">Google</a>-->
+    <a :href="link">Google</a>
+    <div v-html="completeEl"></div>
+
+    <div>
+        <!--<button v-on:click="increase">Increase</button>-->
+        <button @click="counter++">Increase</button>
+        <p>{{ counter }}</p>
+        <p>{{ counter > 5 ? 'Greater than 5' : 'Less than 5' }}</p>
+        <p @mousemove="getCoordinates">Some long-long string {{x}} / {{y}} -
+            <span @mousemove.stop="">NO COORDINATES</span>
+        </p>
+        <input type="text" v-model.lazy="name">
+        <p>{{name}}</p>
+        <button @click="counter++">Increase</button>
+        <button @click="counter--">Decrease</button>
+        <button @click="counterTwo--">Increase second</button>
+        <p>Counter: {{counter}} || {{counterTwo}}</p>
+        <p>Result: {{result()}} || {{output}}</p>
+        
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            isRed: false,
+            title: 'Hello',
+            link: 'https://google.com',
+            completeEl: `<a href="https://google.com">Goggle complete</a>`,
+            counter: 0,
+            x: 0,
+            y: 0,
+            name: 'John',
+            counterTwo: 0,
+            color: 'green',
+            width: 50,
+            show: true,
+            products: [
+                {img: 'https://placehold.it/200x150', quantity: 1, title: 'Notebook', price: 2000},
+                {img: 'https://placehold.it/200x150', quantity: 1, title: 'Mouse', price: 20},
+                {img: 'https://placehold.it/200x150', quantity: 1, title: 'Keyboard', price: 50},
+            ]
+        },
+        computed: {
+            output(){
+                console.log('Computed');
+                return this.counter > 5 ? 'Greater than 5' : 'Less than 5'
+            },
+            divClasses(){
+                return {
+                    red: this.isRed,
+                    blue: !this.isRed
+                }
+            },
+            myStyle(){
+                return {
+                    backgroundColor: this.color,
+                    width: `${this.width}px`,
+                    height: `${this.width}px`,
+                }
+            }
+        },
+        methods: {
+            sayHello(){
+                this.title = 'Foo';
+                return this.title
+            },
+            increase(step, event){
+                console.log(event);
+                this.counter += step;
+            },
+            getCoordinates(){
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            result(){
+                console.log('Method');
+                return this.counter > 5 ? 'Greater than 5' : 'Less than 5'
+            },
+            addProduct(){
+                this.products.push({img: 'https://placehold.it/200x150', quantity: 1, title: 'Chair', price: 120})
+            }
+        }
+    })
+</script>
+</body>
+</html>
