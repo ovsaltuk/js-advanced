@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+
+    <button
+            v-for="tab of tabs"
+            :key="tab"
+            @click="currentTab = tab"
+    >{{ tab }}</button>
+
+    <component :is="currentTabComponent"></component>
+
+
+    <!--<error></error>-->
+    <!--<some-el :counter="counter" @increase="counter++">-->
+        <!--<button @click="some">Some method</button>-->
+    <!--</some-el>-->
+    <!--<some-el :counter="counter"></some-el>-->
+    <!--<some-el :counter="counter" @increase="counter++"></some-el>-->
+    <!--<some-el title="Hello" @custom="some"></some-el>-->
+    <!--<some-el title="Some other string"></some-el>-->
+    <!--<some-el :title="text"></some-el>-->
+    <!--<some-el></some-el>-->
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="components.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
